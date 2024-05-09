@@ -1,28 +1,36 @@
 import React from "react";
 
 function App(props) {
-  const a = {};
-  console.log("a", typeof a);
+  const a = [];
 
-  const b = []; //배열
-  console.log("b", typeof b);
+  // push : 새 값을 배열 맨 뒤에 추가
+  a.push("흥민");
+  a.push("강인");
+  a.push(3.14);
+  console.log(a);
 
-  // 배열 : 여러 값을 순서(index)대로 가지고 있는 객체
-  const c = ["son", "lee", "kim", "hwang"];
+  // pop : 맨 뒤의 값을 제거 후 리턴
+  console.log(a.pop());
+  console.log(a.pop());
+  console.log(a);
+
+  //map : 각 원소를 다른 값으로 매핑 후 새 배열 리턴
+  const b = [5, 4, 3, 2, 1];
+  console.log(b);
+  function action(param) {
+    return param * 2;
+  }
+
+  const c = b.map(action);
   console.log("c", c);
-  console.log("c[1]", c[1]);
-  console.log("c[7]", c[7]); //undefined
+  console.log("b", b);
 
-  return (
-    <div>
-      <ul>
-        <li>{c[0]}</li>
-        <li>{c[1]}</li>
-        <li>{c[2]}</li>
-        <li>{c[3]}</li>
-      </ul>
-    </div>
-  );
+  const d = b.map(function (param) {
+    return param * 3;
+  });
+  console.log(d);
+
+  return <div></div>;
 }
 
 export default App;
