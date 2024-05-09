@@ -1,20 +1,28 @@
 import React from "react";
 
 function App(props) {
-  // object
-  const a = {
-    name: "John",
-  };
+  const a = {};
+  console.log("a", typeof a);
 
-  const b = a;
-  console.log("a.name", a.name); //John
-  console.log("b.name", b.name); // John
+  const b = []; //배열
+  console.log("b", typeof b);
 
-  b.name = "Jane";
-  console.log("a.name", a.name); //Jane
-  console.log("b.name", b.name); // Jane
-  console.log(a === b); //true
-  return <div></div>;
+  // 배열 : 여러 값을 순서(index)대로 가지고 있는 객체
+  const c = ["son", "lee", "kim", "hwang"];
+  console.log("c", c);
+  console.log("c[1]", c[1]);
+  console.log("c[7]", c[7]); //undefined
+
+  return (
+    <div>
+      <ul>
+        <li>{c[0]}</li>
+        <li>{c[1]}</li>
+        <li>{c[2]}</li>
+        <li>{c[3]}</li>
+      </ul>
+    </div>
+  );
 }
 
 export default App;
