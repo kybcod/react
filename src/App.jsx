@@ -1,27 +1,30 @@
-function App() {
-  // javascript review
+import React from "react";
 
-  //javascript data type
-  let a = undefined; //undefined : 값을 주지 않을 때
+function App(props) {
+  // object : {}, {} 안에 프로퍼티명 : 프로퍼티 값의 쌍들이 작성됨
+  let a = {};
+  let b = { name: "흥민" };
+  let c = { address: "신촌", city: "서울", country: "한국" };
+
   console.log("a", a);
-  let b = "문자열 타입";
   console.log("b", b);
-  let c = 3;
-  console.log("c", typeof c);
-  let d = 3.14;
-  console.log("d", typeof d);
-  let e = true;
-  console.log("e", typeof e);
+  console.log("c", c);
 
-  // 객체 타입
-  let f = {};
-  console.log("f", typeof f);
+  console.log("b의 name", b.name);
+  console.log("c의 address", c.address);
+  console.log("b의 name", b["name"]);
+  console.log("c의 address", c["address"]);
 
-  let g = function () {}; // 함수는 function 타입
-  console.log("g", typeof g);
-  g = {};
-  console.log("g", typeof g);
+  b.name = "강인";
+  console.log("b의 name", b.name);
+
+  // 없는 프로퍼티에도 접근 가능(undefined)
+  console.log("b의 city", b.city); //undefined
+  b.city = "부산"; // city 프로퍼티 추가됨
+  b.address = "강남"; // address 프로퍼티 추가됨
+  console.log("b", b);
 
   return <div></div>;
 }
+
 export default App;
