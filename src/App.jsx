@@ -1,35 +1,21 @@
 import React from "react";
 
 function App(props) {
-  const a = ["흥민", "강인", "희찬"];
-  const b = a.map(function (item) {
-    return item + "선수 ";
-  });
+  // string
+  const s1 = "some string";
+  const s2 = "other string";
+  const s3 = " I'm 신뢰에요";
+  const s4 = '제 이름은 "흥민"입니다.';
+  const s5 = `backtick string`; //template literal
 
-  const c = a.map(function (item) {
-    return <li>{item}</li>;
-  });
+  const name = "son";
+  const age = 30;
+  const s6 = "son" + "is " + age + " years.";
+  const s7 = `${name} is ${age} years.`;
 
   return (
     <div>
-      <div>{a}</div>
-      <div>
-        {a[0]}
-        {a[1]}
-        {a[2]}
-      </div>
-      <div>{b}</div>
-      <div>{c}</div>
-      <div>
-        {a.map(function (item) {
-          return <li>{item} </li>;
-        })}
-      </div>
-      <div>
-        {a.map((item) => (
-          <li>{item} 선수</li>
-        ))}
-      </div>
+      {s6} {s7}
     </div>
   );
 }
