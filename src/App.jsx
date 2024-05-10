@@ -1,15 +1,16 @@
 import React from "react";
 
-function MyComp({ name, age, someProp, otherProp }) {
-  console.log(someProp); //true
-  console.log(otherProp); //true
-  return <div></div>;
-}
-
 function App(props) {
   return (
     <div>
-      <MyComp name="son" age={30} otherProp={true} />
+      <button
+        onClick={() => console.log("clicked")}
+        onMouseEnter={() => console.log("mouse enterd")}
+        onMouseLeave={() => console.log("mouse leaved")}
+      >
+        클릭1
+      </button>
+      <input type="text" onChange={() => console.log("changed")} />
     </div>
   );
 }
