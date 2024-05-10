@@ -1,11 +1,10 @@
 import React from "react";
 
-function MyComp({ color }) {
+function MyComp({ headColor, bodyColor }) {
   return (
-    <div style={{ color: color }}>
-      {/*h1>lorem1^p>lorem3*/}
-      <h1>Lorem.</h1>
-      <p>Lorem ipsum dolor.</p>
+    <div>
+      <h1 style={{ color: headColor }}>Lorem.</h1>
+      <p style={{ color: bodyColor }}>Lorem ipsum dolor.</p>
     </div>
   );
 }
@@ -13,8 +12,8 @@ function MyComp({ color }) {
 function App(props) {
   return (
     <div>
-      <MyComp color="red" />
-      <MyComp color="blue" />
+      <MyComp headColor={"skyblue"} bodyColor={"gold"} />
+      <MyComp headColor={"gray"} bodyColor={"black"} />
     </div>
   );
 }
