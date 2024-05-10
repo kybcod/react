@@ -1,19 +1,20 @@
 import React from "react";
 
+function MyComp({ color }) {
+  return (
+    <div style={{ color: color }}>
+      {/*h1>lorem1^p>lorem3*/}
+      <h1>Lorem.</h1>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  );
+}
+
 function App(props) {
-  // style props
   return (
     <div>
-      <div
-        style={{
-          color: "blue",
-          padding: "10px",
-          border: "2px dotted green",
-          textAlign: "center",
-        }}
-      >
-        Lorem ipsum dolor.
-      </div>
+      <MyComp color="red" />
+      <MyComp color="blue" />
     </div>
   );
 }
