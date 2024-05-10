@@ -1,18 +1,15 @@
 import React from "react";
 
-function MyComp(props) {
+function MyComp({ name, age, someProp, otherProp }) {
+  console.log(someProp); //true
+  console.log(otherProp); //true
   return <div></div>;
 }
 
 function App(props) {
-  //props의 이름은 lowerCamelCase로 작성
-  // 예약어를 사용하지 말아야 합니다.
   return (
     <div>
-      <label htmlFor="input1"></label>
-      <input id="input1" type="text" />
-      <p className="error note">Lorem ipsum dolor.</p>
-      <MyComp number={3} pageNumber={3} />
+      <MyComp name="son" age={30} otherProp={true} />
     </div>
   );
 }
