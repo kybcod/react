@@ -1,44 +1,62 @@
 import React, { useState } from "react";
 
 function App(props) {
-  const [age, setAge] = useState("");
-  const [name, setName] = useState("");
-  const [country, setCountry] = useState("");
-  const [team, setTeam] = useState("");
+  const [person, setPerson] = useState({
+    name: "",
+    address: "",
+    city: "",
+    email: "",
+  });
 
   return (
     <div>
       <div>
         <input
           type="text"
-          placeholder={"나이"}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
           placeholder={"이름"}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            const { ...newPerson } = person;
+            newPerson.name = e.target.value;
+            setPerson(newPerson);
+          }}
         />
       </div>
       <div>
         <input
           type="text"
-          placeholder={"국가"}
-          onChange={(e) => setCountry(e.target.value)}
+          placeholder={"주소"}
+          onChange={(e) => {
+            const { ...newPerson } = person;
+            newPerson.address = e.target.value;
+            setPerson(newPerson);
+          }}
         />
       </div>
       <div>
         <input
           type="text"
-          placeholder={"팀"}
-          onChange={(e) => setTeam(e.target.value)}
+          placeholder={"도시"}
+          onChange={(e) => {
+            const newPerson = { ...person, city: e.target.value };
+            setPerson(newPerson);
+          }}
         />
       </div>
       <div>
-        {age}세 {name}은 {country}, {team} 소속입니다.
+        <input
+          type="text"
+          placeholder={"이메일"}
+          onChange={(e) => {
+            setPerson({ ...person, email: e.target.value });
+          }}
+        />
       </div>
+      <ul>
+        <li>name : {person.name}</li>
+        <li>address : {person.address}</li>
+        <li>city : {person.city}</li>
+        <li>email : {person.email}</li>
+      </ul>
     </div>
   );
 }
