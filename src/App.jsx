@@ -2,15 +2,28 @@ import React, { useState } from "react";
 
 function App(props) {
   const [text, setText] = useState("");
+  const [list, setList] = useState([]);
 
-  function handleUpdatedText(e) {
-    setText(e.target.value);
+  function handleClick() {
+    const [...newList] = list;
+    newList.push(text);
+    setList(newList);
+    setText("");
   }
 
   return (
     <div>
-      <input type="text" onChange={handleUpdatedText} />
-      <p>{text}</p>
+      <input
+        value={text}
+        type="text"
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button onClick={handleClick}>추가</button>
+      <ul>
+        {list.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
