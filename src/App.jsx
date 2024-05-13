@@ -1,62 +1,25 @@
 import React, { useState } from "react";
 
-function App(props) {
-  const [person, setPerson] = useState({
-    name: "",
-    address: "",
-    city: "",
-    email: "",
-  });
+function MyButton({ onClick }) {
+  return <button onClick={onClick}>클릭</button>;
+}
 
+function MyNumber({ number }) {
+  return <div>number : {number}</div>;
+}
+
+function App(props) {
+  const [number, setNumber] = useState(0);
+  function handleNumberChange() {
+    setNumber(number + 1);
+  }
+
+  // 하위 컴포넌트의 상태와 이벤트를 상위 컴포넌트에서 관리할 수 있습니다.
+  // 이 때, props 사용해서 이벤트핸들러메소드와 상태를 전달해줍니다.
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          placeholder={"이름"}
-          onChange={(e) => {
-            const { ...newPerson } = person;
-            newPerson.name = e.target.value;
-            setPerson(newPerson);
-          }}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder={"주소"}
-          onChange={(e) => {
-            const { ...newPerson } = person;
-            newPerson.address = e.target.value;
-            setPerson(newPerson);
-          }}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder={"도시"}
-          onChange={(e) => {
-            const newPerson = { ...person, city: e.target.value };
-            setPerson(newPerson);
-          }}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder={"이메일"}
-          onChange={(e) => {
-            setPerson({ ...person, email: e.target.value });
-          }}
-        />
-      </div>
-      <ul>
-        <li>name : {person.name}</li>
-        <li>address : {person.address}</li>
-        <li>city : {person.city}</li>
-        <li>email : {person.email}</li>
-      </ul>
+      <MyButton onClick={handleNumberChange} />
+      <MyNumber number={number} />
     </div>
   );
 }
