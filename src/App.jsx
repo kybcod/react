@@ -1,30 +1,7 @@
-import React, { useState } from "react";
-
-function MyComp1() {
-  const [val, setVal] = useState([]);
-
-  function addItem() {
-    const [...newVal] = val;
-    newVal.push("a");
-    setVal(newVal);
-  }
-
-  return (
-    <div>
-      <div>{val}</div>
-      <div>
-        <button onClick={addItem}>추가</button>
-      </div>
-    </div>
-  );
-}
+import React from "react";
 
 function App(props) {
-  return (
-    <div>
-      <MyComp1 />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
