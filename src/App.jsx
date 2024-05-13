@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 
-const foods = ["pizza", "ramen", "coffee", "latte", "burger"];
-
 function App(props) {
-  const [index, setIndex] = useState(0);
-  const food = foods[index];
+  const [text, setText] = useState("");
+
+  function handleUpdatedText(e) {
+    setText(e.target.value);
+  }
 
   return (
     <div>
-      {index > 0 && <button onClick={() => setIndex(index - 1)}>이전</button>}
-      {index < foods.length - 1 && (
-        <button onClick={() => setIndex(index + 1)}>다음</button>
-      )}
-      <div>{food}</div>
+      <input type="text" onChange={handleUpdatedText} />
+      <p>{text}</p>
     </div>
   );
 }
