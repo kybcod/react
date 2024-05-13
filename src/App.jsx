@@ -1,29 +1,44 @@
 import React, { useState } from "react";
 
 function App(props) {
-  const [text, setText] = useState("");
-  const [list, setList] = useState([]);
-
-  function handleClick() {
-    const [...newList] = list;
-    newList.push(text);
-    setList(newList);
-    setText("");
-  }
+  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [country, setCountry] = useState("");
+  const [team, setTeam] = useState("");
 
   return (
     <div>
-      <input
-        value={text}
-        type="text"
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button onClick={handleClick}>추가</button>
-      <ul>
-        {list.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
+      <div>
+        <input
+          type="text"
+          placeholder={"나이"}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder={"이름"}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder={"국가"}
+          onChange={(e) => setCountry(e.target.value)}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder={"팀"}
+          onChange={(e) => setTeam(e.target.value)}
+        />
+      </div>
+      <div>
+        {age}세 {name}은 {country}, {team} 소속입니다.
+      </div>
     </div>
   );
 }
