@@ -22,9 +22,28 @@ function App(props) {
     //  "item":["phone","shoes","shirts"],"address":null}
   }
 
+  function handleClick2() {
+    axios.post("/api/main41/sub6", { name: "son", age: 33 });
+  }
+
+  function handleClick3() {
+    axios.post("/api/main41/sub7", {
+      name: "lee",
+      height: 170.5,
+      info: {
+        address: "korea",
+        city: "seoul",
+      },
+      foods: ["pizza", "pasta"],
+      married: false,
+    });
+  }
+
   return (
     <div>
       <button onClick={handleClick1}>json 데이터와 요청</button>
+      <button onClick={handleClick2}>json 데이터와 요청</button>
+      <button onClick={handleClick3}>json 데이터와 요청</button>
     </div>
   );
 }
