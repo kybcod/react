@@ -1,46 +1,54 @@
-import React, {useState} from "react";
+import React from 'react';
 import axios from "axios";
 
 function App(props) {
-  const [result, setResult] = useState("");
-  function handleClick1() {
-    axios.get("/api/main42/sub1").then((param) => {
-      console.log(param.data);
-    });
-  }
-
-  function handleClick2() {
-    axios.get("/api/main42/sub2").then((param) => setResult(param.data));
-  }
-
-    function handleClick3() {
-        axios.get("/api/main42/sub3").then((res)=> console.log(res.data));
+    function handleClick200() {
+        axios.get("/api/main43/sub1")
+            .then(response => {
+                console.log("200 응답");
+            });
     }
 
-  function handleClick4() {
-    axios.get("/api/main42/sub4").then((param)=> console.log(param.data));
-  }
-
-    function handleClick5() {
-        axios.get("/api/main42/sub5").then((param)=> console.log(param.data));
+    function handleClick400() {
+        axios.get("/api/main43/sub2").
+        then((res)=> console.log("400 응답"))
+            .catch(()=> console.log("catch 400 응답"));
     }
 
-  function handleClick6() {
-    axios.get("/api/main42/sub6").then((param)=> console.log(param.data));
-  }
+    function handelClick401() {
+        axios.get("/api/main43/sub3")
+            .then((res)=> console.log("401 응답"))
+            .catch(()=> console.log("catch 401 응답"));
+    }
 
-  return (
-    <div>
-      <button onClick={handleClick1}>응답 받기</button>
-      <button onClick={handleClick2}>응답 받기</button>
-      <br/>
-      <p>{result}</p>
-        <button onClick={handleClick3}>JSON 응답 받기</button>
-        <button onClick={handleClick4}>JSON 응답 받기</button>
-        <button onClick={handleClick5}>JSON 응답 받기</button>
-        <button onClick={handleClick6}>JSON 응답 받기</button>
-    </div>
-  );
+    function handelClick403() {
+        axios.get("/api/main43/sub4")
+            .then((res)=> console.log("403 응답"))
+            .catch(()=> console.log("catch 403 응답"));
+    }
+
+    function handelClick404() {
+        axios.get("/api/main43/sub5")
+            .then((res)=> console.log("404 응답"))
+            .catch(()=> console.log("catch 404 응답"));
+    }
+
+    function handelClick500() {
+        axios.get("/api/main43/sub6")
+            .then((res)=> console.log("500 응답"))
+            .catch(()=> console.log("catch 500 응답"));
+    }
+
+    return (
+        <div>
+          <button onClick={handleClick200}>200 응답</button>
+          <button onClick={handleClick400}>400 응답</button>
+          <button onClick={handelClick401}>401 응답</button>
+          <button onClick={handelClick403}>403 응답</button>
+          <button onClick={handelClick404}>404 응답</button>
+          <button onClick={handelClick500}>500 응답</button>
+        </div>
+    );
 }
 
 export default App;
