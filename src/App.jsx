@@ -23,6 +23,12 @@ const router = createBrowserRouter([{
 },{
     path:"/home",
     element:<div>메인 페이지</div>
+}, {
+    path:"/board/write",
+    element:<div>게시글 작성하기</div>
+},{
+    path:"/board/edit",
+    element:<div>게시글 수정하기</div>
 }]);
 
 
