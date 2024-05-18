@@ -1,38 +1,43 @@
 import React from 'react';
 import {createBrowserRouter, Link, Outlet, RouterProvider} from "react-router-dom";
 
-function SpringRoot() {
-    return <div>
+function Root() {
+    return (
         <div>
-            <Link to={"/spring"}>Home</Link>
+            <div>
+                <Link to="/">Main</Link>
+                <Link to="/list">List</Link>
+            </div>
+            <hr/>
+            <div><Outlet/></div>
         </div>
+    );
+}
 
-        <div style={{padding:"10px", backgroundColor:"#eee", display:"flex", gap:"5px"}}>
-            <div><Link to="/spring/learn">LEARN</Link></div>
-            <div><Link to="/spring/api">API</Link></div>
-            <div><Link to="/spring/doc">DOC</Link></div>
-        </div>
-        <div style={{marginTop:"20px"}}>
-            <Outlet/>
-        </div>
+function BoardList() {
+    return <div>
+        <div>1번 게시물 보기</div>
+        <div>2번 게시물 보기</div>
+        <div>3번 게시물 보기</div>
     </div>;
 }
 
-const router = createBrowserRouter([
-    {
-        path: "spring",
-        element: <SpringRoot />,
-        children : [
-            {index: true, element: <div>spring main page</div>},
-            {path: "api", element: <div>api page</div>},
-            {path: "doc", element: <div>doc page</div>},
-            {path: "learn", element: <div>learn page</div>},
-        ]
-    }
-])
+const router = createBrowserRouter([{
+    path: "/",
+    element:<Root/>,
+    children:[{
+        index: true, element:<div>Main</div>
+    },{
+        path:"board",
+        element:<div>BOARD PAGE</div>
+    },{
+        path:"list",
+        element:<BoardList/>
+    }]
+}])
 
 function App(props) {
-    return <RouterProvider router={router}/>
+    return <RouterProvider router={router} />
 }
 
 export default App;
