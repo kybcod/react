@@ -1,5 +1,5 @@
 import React from 'react';
-import {createBrowserRouter, Link, Outlet, RouterProvider, useSearchParams} from "react-router-dom";
+import {createBrowserRouter, Link, Outlet, RouterProvider} from "react-router-dom";
 
 function Root() {
     return (
@@ -16,18 +16,10 @@ function Root() {
 
 function BoardList() {
     return <div>
-        <div><Link to="/board?id=1">1번 게시물 보기</Link></div>
-        <div><Link to="/board?id=2">2번 게시물 보기</Link></div>
-        <div><Link to="/board?id=3">3번 게시물 보기</Link></div>
+        <div>1번 게시물 보기</div>
+        <div>2번 게시물 보기</div>
+        <div>3번 게시물 보기</div>
     </div>;
-}
-
-function BoardView() {
-    // /board?id=3
-    // query String(key, value) 읽기
-    const [params] = useSearchParams();
-
-    return <div>{params.get("id")}번 게시물 보기</div>;
 }
 
 const router = createBrowserRouter([{
@@ -37,7 +29,7 @@ const router = createBrowserRouter([{
         index: true, element:<div>Main</div>
     },{
         path:"board",
-        element:<BoardView/>
+        element:<div>BOARD PAGE</div>
     },{
         path:"list",
         element:<BoardList/>
