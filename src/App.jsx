@@ -1,15 +1,19 @@
 import React from 'react';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {BoardAdd} from "./BoardAdd.jsx";
+import {BoardEdit} from "./BoardEdit.jsx";
+import {BoardList} from "./BoardList.jsx";
 
+// 경로 / 생략 가능
 const router = createBrowserRouter([{
     path: "/add",
-    element: <div>글 작성 페이지</div>,
+    element: <BoardAdd/>,
 }, {
     path: "/edit",
-    element: <div>글 수정 페이지</div>,
+    element: <BoardEdit/>,
 },{
     path: "list",
-    element: <div>글 목록 페이지</div>
+    element: <BoardList/>
 },{
     path:"/about",
     element:<div>해당 게시글 관련 페이지</div>
